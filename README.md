@@ -1,7 +1,7 @@
 # ngx-base
 
 [![Build Status](https://ci.centos.org/buildStatus/icon?job=devtools-ngx-base-npm-publish-build-master)](https://ci.centos.org/view/Devtools/job/devtools-ngx-base-npm-publish-build-master/)
-[![npm version](https://badge.fury.io/js/ngx-fabric8-wit.svg)](https://badge.fury.io/js/ngx-fabric8-wit)
+[![npm version](https://badge.fury.io/js/ngx-base.svg)](https://badge.fury.io/js/ngx-base)
 
 Common services for working with the Fabric8 Work Item Tracker.
 
