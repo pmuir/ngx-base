@@ -1,12 +1,9 @@
-# ngx-fabric8-wit
+# ngx-base
 
 [![Build Status](https://ci.centos.org/buildStatus/icon?job=devtools-ngx-fabric8-wit-npm-publish-build-master)](https://ci.centos.org/view/Devtools/job/devtools-ngx-fabric8-wit-npm-publish-build-master/)
 [![npm version](https://badge.fury.io/js/ngx-fabric8-wit.svg)](https://badge.fury.io/js/ngx-fabric8-wit)
 
 Common services for working with the Fabric8 Work Item Tracker.
-
-The work item tracker is located [here](https://github.com/almighty/almighty-core). 
-You can see how it is used in the front-end [here](https://github.com/fabric8io/fabric8-ui).
 
 The system we build is composed of several components existing in separate repos but
 still needing access to common information, like how to manage spaces. These services were 
@@ -16,36 +13,13 @@ extracted to provide a shared set of services.
 
 This library does not run on it's own. It must be imported. 
 
-`npm install ngx-fabric8-wit`
+`npm install ngx-base`
 
 There are several services and a couple of models used by them available.
 
-    Space Service
-  
-You must provide the URL to API to do the login. To do this, you must provide 
-a `string` with an OpaqueToken `WIT_API_URL` from `ngx-fabric8-wit`. We suggest using a
-factory provider for this. For example:
-
-````
-import { ApiLocatorService } from './api-locator.service';
-import { WIT_API_URL } from 'ngx-fabric8-wit';
-
-let authApiUrlFactory = (api: ApiLocatorService) => {
-  return api.witApiUrl;
-};
-
-export let witApiUrlProvider = {
-  provide: WIT_API_URL,
-  useFactory: witApiUrlFactory,
-  deps: [ApiLocatorService]
-};
-````
-
-NOTE: `ApiLocatorService` is a service that we use to construct API URLs using patterns determined
-by our application architecture, you can implement this part however you like.
-
-Finally you need to register `witApiUrlProvider` with a module or a component.
- 
+    Notifications
+    Broadcaster
+    Logger
 
 ## Building it 
  
@@ -69,7 +43,7 @@ Finally you need to register `witApiUrlProvider` with a module or a component.
 
 ### Production
 
-To build ngx-fabric8-wit as a npm library, use:
+To build ngx-base as a npm library, use:
 
 ----
 npm run build
@@ -82,16 +56,16 @@ build manually, instead you should let the CD pipeline do a semantic release.
 
 ### Development
 
-To build ngx-fabric8-wit as an npm library and embed it into a webapp such as
+To build ngx-base as an npm library and embed it into a webapp such as
 fabric8-ui, you should:
 
-1. Run `npm run watch:library` in this directory. This will build ngx-fabric8-wit as
+1. Run `npm run watch:library` in this directory. This will build ngx-base as
 a library and then set up a watch task to rebuild any ts, html and scss files you
 change.
-2. In the webapp into which you are embedding, run `npm link <path to ngx-fabric8-wit>/dist-watch`.
-This will create a symlink from `node_modules/ngx-fabric8-wit` to the `dist-watch` directory
+2. In the webapp into which you are embedding, run `npm link <path to ngx-base>/dist-watch`.
+This will create a symlink from `node_modules/ngx-base` to the `dist-watch` directory
 and install that symlinked node module into your webapp.
-3. Run your webapp in development mode, making sure you have a watch on `node_modules/ngx-fabric8-wit`
+3. Run your webapp in development mode, making sure you have a watch on `node_modules/ngx-base`
 enabled. To do this using a typical Angular Webpack setup, such as the one based on Angular Class,
 just run `npm start. You will have access to both JS sourcemaps and SASS sourcemaps if your webapp
 is properly setup.
@@ -101,7 +75,7 @@ run `npm start`.
 
 ## Continuous Delivery & Semantic Relases
 
-In ngx-fabric8-wit we use the [semantic-release plugin](https://github.com/semantic-release/semantic-release). That means 
+In ngx-base we use the [semantic-release plugin](https://github.com/semantic-release/semantic-release). That means 
 that all you have to do is use the AngularJS Commit Message Conventions (documented below). Once the PR is merged, a new release will be automatically published to npmjs.com and a release tag
 created on github. The version will be updated following semantic versionning rules.
 
