@@ -76,7 +76,7 @@ gulp.task('copy-html', function () {
 gulp.task('copy-static-assets', function () {
   return gulp.src([
     'LICENSE',
-    'README.adoc',
+    'README.md',
     'package.json',
   ])
     .pipe(gulp.dest(libraryDist));
